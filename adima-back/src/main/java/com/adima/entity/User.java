@@ -49,7 +49,7 @@ public class User extends AbstractEntity {
         this.email = email;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     public String getPassword() {
         return password;
     }
