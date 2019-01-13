@@ -5,8 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {BaseRequestOptions} from '@angular/http';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {MockBackend} from '@angular/http/testing';
-import {AppComponent} from './app.component';
+ import {AppComponent} from './app.component';
 import {routing} from './app.routing';
 import {Router} from '@angular/router';
 import { ReactiveFormsModule }    from '@angular/forms';
@@ -22,6 +21,7 @@ import {AuthGuard, TokenInterceptor} from './_guards/index';
 import {AlertService, AuthenticationService, AgendaService, UserService} from './_services/index';
 import {fakeBackendProvider} from './_helpers/index';
 import {AccountValidateComponent} from './account-validate/account-validate.component';
+import {ChatComponent} from "./chat/chat.component";
 
 @NgModule({
   imports: [
@@ -36,6 +36,7 @@ import {AccountValidateComponent} from './account-validate/account-validate.comp
     AlertComponent,
     HomeComponent,
     LoginComponent,
+    ChatComponent,
     RegisterComponent,
     LeaveTableComponent,
     AccountValidateComponent
