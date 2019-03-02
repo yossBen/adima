@@ -9,13 +9,13 @@ import {AccountValidateComponent} from "./account-validate/account-validate.comp
 import {ChatComponent} from "./chat/chat.component";
 
 const appRoutes: Routes = [
-  { path: '', component: LeaveTableComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: ChatComponent },
+  { path: '', component: ChatComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'chatlive', component: ChatComponent },
+  { path: 'chat', component: ChatComponent },
   { path: 'validate', component: AccountValidateComponent },
   // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+ /* { path: '**', redirectTo: '' }*/
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

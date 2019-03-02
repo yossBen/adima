@@ -1,6 +1,6 @@
 ﻿import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../_models/user';
+import {User} from '../_models/user.model';
 import {Observable} from 'rxjs';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class AuthenticationService {
   }
 
   public get token() : string {
-    const user: User = JSON.parse(localStorage.getItem('currentUser'));
+    const user: User = JSON.parse(sessionStorage.getItem('currentUser'));
     if (user) {
       return user.token;
     }
@@ -28,6 +28,6 @@ export class AuthenticationService {
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
   }
 }

@@ -47,8 +47,8 @@ public class UserRestTest {
     @Test
     public void createUserTest() throws Exception {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
-        params.add("firstname", "mohamed");
-        params.add("lastname", "AMAZIGH");
+        params.add("firstName", "mohamed");
+        params.add("lastName", "AMAZIGH");
         params.add("password", "mohamed");
         params.add("email", params.getFirst("firstname") + new Random().nextInt(100) + "@gmail.com");
 

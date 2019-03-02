@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         data => {
           if (data && data.token) {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(data));
+            sessionStorage.setItem('currentUser', JSON.stringify(data));
             this.router.navigate([this.returnUrl]);
           }
         },
@@ -61,11 +61,11 @@ export class LoginComponent implements OnInit {
           if (err && err.devStatus === '#400-2') {
             this.alertService.error('Email ou mots de passe sont incorrectes');
           }
+          this.loading = false;
         },
         () => {
-          this.loading = true;
+          this.loading = false;
         }
       );
   }
-
 }

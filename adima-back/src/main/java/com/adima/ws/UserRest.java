@@ -36,11 +36,11 @@ public class UserRest {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void create(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String password, @RequestParam String email) throws RestException {
+    public void create(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String password, @RequestParam String email) throws RestException {
         if (userService.isExist(email)) {
             LOGGER.log(Level.SEVERE, "Unable to create. A User with name " + email + " already exist.");
             throw new RestException("Unable to create. A User with name " + email + " already exist.", HttpStatus.BAD_REQUEST, CustomStatus.ACCOUNT_EXIST);
         }
-        userService.create(firstname, lastname, password, email);
+        userService.create(firstName, lastName, password, email);
     }
 }

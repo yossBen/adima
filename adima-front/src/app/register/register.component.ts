@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -53,9 +53,10 @@ export class RegisterComponent implements OnInit {
             this.alertService.error("Un compte existe déjà pour cette adresse email");
           }
           console.log(error.message);
+          this.loading = false;
         },
         () => {
-          this.loading = true;
+          this.loading = false;
         });
   }
 }

@@ -13,5 +13,7 @@
 
 export const environment = {
   production: false,
-  SERVER: '//localhost:8080'
+  SERVER: '//localhost:8080',
+  CHAT_HOST: '192.168.100.155',
+  CHAT_WEBSOCKET: "ws://localhost:7070/ws/"
 };

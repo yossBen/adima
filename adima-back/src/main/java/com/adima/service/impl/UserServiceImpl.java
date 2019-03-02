@@ -58,10 +58,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void create(String firstname, String lastname, String password, String email) {
+	public void create(String firstName, String lastName, String password, String email) {
 		User user = new User();
-		user.setFirstname(firstname);
-		user.setLastname(lastname);
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
 		user.setEmail(email);
 		user.setPassword(password);
 		Long id = userDAO.save(user);

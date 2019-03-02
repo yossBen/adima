@@ -1,5 +1,5 @@
 ﻿import {Injectable} from '@angular/core';
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {AuthenticationService} from '../_services/authentication.service';
 import {Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {catchError} from "rxjs/internal/operators/catchError";
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router , private authenticationService: AuthenticationService) {
+  constructor(private router: Router, private authenticationService: AuthenticationService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -24,7 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
     });
 
     // Ajouter l'Authentification JWT
-    const token:string = this.authenticationService.token;
+    const token: string = this.authenticationService.token;
     if (token) {
       req = req.clone({
         setHeaders: {
@@ -39,10 +39,11 @@ export class TokenInterceptor implements HttpInterceptor {
         console.log("Probleme d'authentification");
         this.authenticationService.logout();
         location.reload(true);
-        /*this.router.navigate(['/login']);*/
+        /!*this.router.navigate(['/login']);*!/
       }
-      const error = err.error.message || err.statusText;
-      return throwError(error);
+      // const error = err.error.message || err.statusText;
+      return throwError(err);
     }))
+    // return next.handle(req) ;
   }
 }
